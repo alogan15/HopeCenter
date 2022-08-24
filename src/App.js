@@ -4,12 +4,12 @@ import SignUp from './components/CreateAcct';
 import ForgotPwd from './components/ForgotPwd';
 import Verify from './components/Verify';
 import MonetaryDonate from './components/MonetaryDonate';
-import DonorHome from './components/DonorHome';
+import Blog from './InventoryHome/Blog';
 import Dashboard from './Inventory/Dashboard';
 import NewIncoming from './components/NewIncoming';
 import NewParticipant from './components/NewParticipant';
 import LoginSide from './components/LoginSide';
-import Blog from './InventoryHome/Blog';
+
 
 
 

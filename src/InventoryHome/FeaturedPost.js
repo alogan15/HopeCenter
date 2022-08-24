@@ -31,8 +31,8 @@ function FeaturedPost(props) {
           <CardMedia
             component="img"
             sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-            // image={post.image}
-            // alt={post.imageLabel}
+            image={post.image}
+            alt={post.imageLabel}
           />
         </Card>
       </CardActionArea>

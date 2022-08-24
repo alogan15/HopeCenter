@@ -11,7 +11,6 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 
 
-
 const page={
   padding:'10px'
 }

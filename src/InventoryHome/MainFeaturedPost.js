@@ -46,10 +46,12 @@ function MainFeaturedPost(props) {
               pr: { md: 0 },
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+            <Typography 
+            marginTop="7rem"
+            component="h1" variant="h3" color="inherit" gutterBottom>
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography marginTop=".5rem" variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
             <Link variant="subtitle1" href="#">
