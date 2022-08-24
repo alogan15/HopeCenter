@@ -1,15 +1,13 @@
 .App {
   text-align: center;
-  
- 
 }
-
+/* 
 .image {
   background-image: url("../public/hopecenterimage.jpg");
   height: 100vh;
   position:static;
   margin-top: -5rem;
-}
+} */
 
 .App-logo {
   height: 40vmin;

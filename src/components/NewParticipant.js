@@ -1,158 +1,179 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import { Avatar, Button, Paper, TextField, Stack } from '@mui/material';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import { Avatar } from '@mui/material';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Stack } from '@mui/system';
 
-
-
-
-const NewParticipant = () => {
- 
-
-    const paperStyle={
-        padding: "20px",
-        height: 'auto',
-        width: 380,
-        margin: "20px auto"
-    }
-    const avatarStyle={
-        backgroundColor: "blue"
-    }
-    const textfield={
-        margin: '10px',
-        color:'blue'
-    }
-    const btnstyle={
-        margin:'15px 0',
-        color:'white',
-        backgroundColor:'blue',
-        padding: '7px'
-    }
-  
-  const header={
-    color:'blue'
-  }
-
-
-    return(
-      <Box component="form" noValidate sx={{ mt: 3 }}>
-        <Grid >
-            <Paper elevation={10} style={paperStyle} >
-
-                <Grid align="center">
-                <Avatar style={avatarStyle}><RecordVoiceOverIcon   /></Avatar>
-                <h4 style={header}>Participant Request Form</h4>
-                </Grid> 
-                
-                <Grid container spacing={1}>
-                <Grid item xs={12} sm={6}>
-                <TextField 
-                    style={textfield} 
-                    autoComplete="given-name"
-                    name="firstName"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                  >
-                  
-                </TextField>  
-                </Grid>
-
-                <Grid item xs={12} sm={6}>
-                <TextField 
-                    style={textfield} 
-                    required
-                    fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="family-name"
-                  >
-                </TextField>  
-                </Grid>
-
-                <Grid item xs={12} sm={6}>
-                <TextField 
-                    style={textfield} 
-                    required
-                    fullWidth
-                    id="room"
-                    label="Room Number"
-                    name="room"
-                    autoComplete="room"
-                >
-                </TextField>  
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <TextField 
-                    style={textfield} 
-                    required
-                    fullWidth
-                    id="family"
-                    label="Family Size"
-                    name="family"
-                    autoComplete="family"
-                >
-                </TextField>  
-                </Grid>
-                <Grid item xs={12}>
-                <TextField 
-                    style={textfield} 
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email"
-                    name="email"
-                    autoComplete="email"
-                >
-                </TextField>  
-                </Grid>
-                <Grid item xs={12}>
-                <TextField 
-                    style={textfield} 
-                    required
-                    fullWidth
-                    rows={4}
-                    multiline
-                    id="items"
-                    label="Items Needed"
-                    name="items"
-                    autoComplete="items"
-                >
-                </TextField>
-                </Grid>
-                </Grid>
-                <Stack justifyContent='center'>
-              
-                <Button
-                    type="submit" 
-                    color="primary" 
-                    variant="contained" 
-                    style={btnstyle}
-                  
-                   
-                > 
-                    Submit
-                </Button>
-                <Link to="/donatehome">
-                    <Button>back</Button>
-                </Link>
-                </Stack>
-                
-            </Paper>
-         
-            
-        </Grid>
-        </Box>
-
-
-     
-        
-    )
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://ncchopecenterinc.com/">
+       NCC Hope Center, Inc.
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
-export default NewParticipant;
+const theme = createTheme({
+    typography:{
+        allVariants: {
+            fontFamily: 'serif'
+        }
+    }
+});
+
+
+
+const title={
+    color:'blue'
+}
+
+const avatarStyle={
+  color:'blue'
+}
+
+export default function NewParticipant() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://www.newcastlede.gov/ImageRepository/Document?documentID=46217)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+             <Avatar style={avatarStyle}><RecordVoiceOverIcon   /></Avatar>
+            <Typography component="h1" variant="h4" style={title}>
+            Participant Request
+         </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="First Name"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Last Name"
+                id="password"
+                autoComplete="current-password"
+              />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Room Number"
+                id="password"
+                autoComplete="current-password"
+              />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Family Size"
+                id="password"
+                autoComplete="current-password"
+              />
+              </Grid>
+              </Grid>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Email"
+                id="password"
+                autoComplete="current-password"
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                rows={5}
+                multiline
+                name="password"
+                label="Items Needed"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Stack>
+              <Link to="/donatehome">
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Submit
+              </Button>
+              </Link>
+                <Link to="/donatehome">
+                    <Button>back</Button>
+                 </Link>
+              </Stack>
+              <Grid container>
+              </Grid>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  );
+}
