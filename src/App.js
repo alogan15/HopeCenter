@@ -9,6 +9,8 @@ import Dashboard from './Inventory/Dashboard';
 import NewIncoming from './components/NewIncoming';
 import NewParticipant from './components/NewParticipant';
 import LoginSide from './components/LoginSide';
+import InventoryCount from './Inventory/InventoryCount';
+
 
 
 
@@ -28,9 +30,9 @@ function App() {
           <Route path="/donatehome" element={<Blog />} />
           <Route path="/inventory" element={<Dashboard />} />
           <Route path="/participantform" element={<NewParticipant />} />
+          {/* <Route path="/inventorycount" element={<InventoryCount />} /> */}
         </Routes>
       </Router>
-      
     </div>
   );
 }

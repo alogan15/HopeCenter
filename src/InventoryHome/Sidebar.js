@@ -9,7 +9,7 @@ function Sidebar(props) {
   const {  social } = props;
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={4} marginLeft="55rem">
 
       <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
         Partners
